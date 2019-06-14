@@ -81,7 +81,6 @@ namespace Qwe.Models
         {
             Robot robot1 = new Robot();  //статич конструктор срабатывет при первом создании объекта
             Robot robot2 = new Robot();
-            int a = 10;
         }
     }
 }
