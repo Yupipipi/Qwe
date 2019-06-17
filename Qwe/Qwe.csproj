@@ -130,9 +130,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Alex.cs" />
+    <Compile Include="Models\Dop.cs" />
+    <Compile Include="Models\Dopoln.cs" />
     <Compile Include="Models\PensContext.cs" />
     <Compile Include="Models\PensDbInitializer.cs" />
+    <Compile Include="Models\Person.cs" />
+    <Compile Include="Models\Persons.cs" />
+    <Compile Include="Models\Prov.cs" />
     <Compile Include="Models\Purchasep.cs" />
+    <Compile Include="Models\Robot.cs" />
+    <Compile Include="Models\Robots.cs" />
     <Compile Include="Models\ShortDbInitializer.cs" />
     <Compile Include="Models\Clothe.cs" />
     <Compile Include="Models\Pens.cs" />
