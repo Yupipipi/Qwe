@@ -148,6 +148,7 @@
     <Compile Include="Models\Purchase.cs" />
     <Compile Include="Models\Short.cs" />
     <Compile Include="Models\ShortContext.cs" />
+    <Compile Include="Models\Square.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -195,6 +196,7 @@
     <Content Include="Views\Home\Buy.cshtml" />
     <Content Include="Views\Home\Pen.cshtml" />
     <Content Include="Views\Home\Buyp.cshtml" />
+    <Content Include="Views\Home\Primer.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

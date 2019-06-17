@@ -9,18 +9,18 @@ namespace Qwe.Models
     {
         protected int Number { get; set; }
 
-        private int Age;
-        public override int age //просиходит переопределение
+        private int age;
+        public override int Age //просиходит переопределение
         {
             get
             {
-                return Age;
+                return age;
             }
             set
             {
                 if (value > 17)
                 {
-                    Age = value;
+                    age = value;
                 }
             }
         }

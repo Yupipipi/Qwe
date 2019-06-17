@@ -10,8 +10,8 @@ namespace Qwe.Models
         static void Main()
         {
             Person alex = new Person();  //срабатывает конструктор по умолчанию
-            alex.name = "Alex";
-            alex.age = 20;
+            alex.Name = "Alex";
+            alex.Age = 20;
         }
     }
 }

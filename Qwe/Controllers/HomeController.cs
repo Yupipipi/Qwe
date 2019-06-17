@@ -22,7 +22,6 @@ namespace Qwe.Controllers
                 // возвращаем представление
                 return View();
             }
-
         public ActionResult Pen()
         {
             // получаем из бд все объекты 
@@ -46,7 +45,7 @@ namespace Qwe.Controllers
             db.Purchases.Add(purchase);
             // сохраняем в бд все изменения
             db.SaveChanges();
-            return "Спасибо, " + purchase.Person + ", за покупку!";
+            return purchase.GetFullname();
         }
         [HttpGet]
         public ActionResult Buyp(int id)
@@ -62,7 +61,18 @@ namespace Qwe.Controllers
             dbp.Purchasesp.Add(purchasep);
             // сохраняем в бд все изменения
             dbp.SaveChanges();
-            return "Спасибо, " + purchasep.Person + ", за покупку!";
+            return purchasep.GetFullname();
+        }
+        public ActionResult Primer()
+        {
+            return View();
+        }
+        public string Alex()
+        {
+            Dopoln alex = new Dopoln();
+            alex.Name = "Alex";
+            alex.Age = 20;
+            return "<h2>Имя: " + alex.Name + " Возраст: " + alex.Age;
         }
     }
 }
