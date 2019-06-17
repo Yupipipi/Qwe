@@ -11,8 +11,7 @@ namespace Qwe.Controllers
     {
         // создаем контекст данных
         ShortContext db = new ShortContext();
-        PensContext dbp = new PensContext();
-
+        
         public ActionResult Index()
             {
                 // получаем из бд все объекты 
@@ -22,15 +21,6 @@ namespace Qwe.Controllers
                 // возвращаем представление
                 return View();
             }
-        public ActionResult Pen()
-        {
-            // получаем из бд все объекты 
-            IEnumerable<Pens> penses = dbp.Penses;
-            // передаем все объекты в ViewBag
-            ViewBag.Penses = penses;
-            // возвращаем представление
-            return View();
-        }
         [HttpGet]
         public ActionResult Buy(int id)
         {
@@ -46,22 +36,6 @@ namespace Qwe.Controllers
             // сохраняем в бд все изменения
             db.SaveChanges();
             return purchase.GetFullname();
-        }
-        [HttpGet]
-        public ActionResult Buyp(int id)
-        {
-            ViewBag.PensId = id;
-            return View();
-        }
-        [HttpPost]
-        public string Buyp(Purchasep purchasep)
-        {
-            purchasep.Date = DateTime.Now;
-            // добавляем информацию о покупке в базу данных
-            dbp.Purchasesp.Add(purchasep);
-            // сохраняем в бд все изменения
-            dbp.SaveChanges();
-            return purchasep.GetFullname();
         }
         public ActionResult Primer()
         {

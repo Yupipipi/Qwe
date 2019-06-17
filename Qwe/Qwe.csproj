@@ -127,6 +127,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PensController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -197,6 +198,8 @@
     <Content Include="Views\Home\Pen.cshtml" />
     <Content Include="Views\Home\Buyp.cshtml" />
     <Content Include="Views\Home\Primer.cshtml" />
+    <Content Include="Views\Pens\Buyp.cshtml" />
+    <Content Include="Views\Pens\Pen.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

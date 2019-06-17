@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Покупка";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Покупка</title>
+</head>
+<body>
+    <div>
+        <h3>Форма оформления покупки</h3>
+        <form method="post" action="">
+            <input type="hidden" value="@ViewBag.PensId" name="PensId" />
+            <table>
+                <tr>
+                    <td><p>Введите имя : </p></td>
+                    <td><input type="text" name="Name" /> </td>
+                </tr>
+                <tr>
+                    <td><p>Введите фамилию : </p></td>
+                    <td><input type="text" name="Surname" /> </td>
+                </tr>
+                <tr>
+                    <td><p>Введите отчество : </p></td>
+                    <td><input type="text" name="Fathersname" /> </td>
+                </tr>
+                <tr>
+                    <td><p>Введите адрес : </p></td>
+                    <td>
+                        <input type="text" name="Address" />
+                    </td>
+                </tr>
+                <tr><td><input type="submit" value="Отправить" /> </td><td></td></tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
