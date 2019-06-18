@@ -9,7 +9,6 @@ namespace Qwe.Models
     {
         static void Main()
         {
-            Persons ivan = new Persons("Ivan");  //конструкторы с параметрами
             Persons max = new Persons("Max", 20);
         }
     }

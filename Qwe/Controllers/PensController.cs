@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Qwe.Models;
+using System.Data.Entity;
 
 namespace Qwe.Controllers
 {
@@ -11,6 +12,7 @@ namespace Qwe.Controllers
     {
         // GET: Pens
         PensContext dbp = new PensContext();
+
         public ActionResult Pen()
         {
             // получаем из бд все объекты 
@@ -35,6 +37,34 @@ namespace Qwe.Controllers
             // сохраняем в бд все изменения
             dbp.SaveChanges();
             return purchasep.GetFullname();
+        }
+        public ActionResult Addp()
+        {
+            return View();
+        }
+        [HttpPost]
+        public object Addp(Pens add)
+        {
+            // добавляем информацию о покупке в базу данных
+            dbp.Penses.Add(add);
+            // сохраняем в бд все изменения
+            dbp.SaveChanges();
+            return Pen();
+        }
+
+        [HttpGet]
+        public ActionResult Editp(int id)
+        {
+            ViewBag.PensId = id;
+            return View();
+        }
+        [HttpPost]
+        public object Editp(Pens edit)
+        {
+            dbp.Entry(edit).State = EntityState.Modified;
+            // сохраняем в бд все изменения
+            dbp.SaveChanges();
+            return View();
         }
     }
 }

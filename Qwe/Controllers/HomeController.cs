@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Qwe.Models;
+using System.Data.Entity;
 
 namespace Qwe.Controllers
 {
@@ -37,16 +38,51 @@ namespace Qwe.Controllers
             db.SaveChanges();
             return purchase.GetFullname();
         }
-        public ActionResult Primer()
+
+        [HttpGet]
+        public ActionResult Add()
         {
             return View();
         }
-        public string Alex()
+        [HttpPost]
+        public object Add(Short add)
         {
-            Dopoln alex = new Dopoln();
-            alex.Name = "Alex";
-            alex.Age = 20;
-            return "<h2>Имя: " + alex.Name + " Возраст: " + alex.Age;
+            // добавляем информацию о покупке в базу данных
+            db.Shorts.Add(add);
+            // сохраняем в бд все изменения
+            db.SaveChanges();
+            return View();
         }
+
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            ViewBag.ShortId = id;
+            return View();
+        }
+        [HttpPost]
+        public object Edit(Short edit)
+        {
+            db.Entry(edit).State = EntityState.Modified;
+            // сохраняем в бд все изменения
+            db.SaveChanges();
+            return View();
+        }
+        /*
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            ViewBag.ShortId = id;
+            return View();
+        }
+        [HttpPost]
+        public object Delete()
+        {
+            int id = ViewBag.ShortId;
+            db.Entry(id).State = EntityState.Deleted;
+            // сохраняем в бд все изменения
+            db.SaveChanges();
+            return View();
+        }*/
     }
 }

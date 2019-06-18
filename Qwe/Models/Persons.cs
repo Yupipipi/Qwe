@@ -5,12 +5,9 @@ using System.Web;
 
 namespace Qwe.Models
 {
-    public class Persons
+    public class Persons : Person
     {
-        public string name;
-        public int age;
-
-        public Persons(string a) { name = a; age = 0; }
-        public Persons(string a, int b) { name = a; age = b; }
+        public Persons(string a, string b, string c, string d) { Name = a; Surname = b; Middlename = c; Address = d; }
+        public Persons(string a, int b) { Name = a; Age = b; }
     }
 }

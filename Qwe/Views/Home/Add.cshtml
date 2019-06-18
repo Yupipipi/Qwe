@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Покупка";
+    ViewBag.Title = "Добавление";
 }
 
 <!DOCTYPE html>
@@ -7,30 +7,30 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Покупка</title>
+    <title>Добавление</title>
 </head>
 <body>
     <div>
-        <h3>Форма оформления покупки майки</h3>
+        <h3>Форма добавления майки</h3>
         <form method="post" action="">
             <input type="hidden" value="@ViewBag.ShortId" name="ShortId" />
             <table>
                 <tr>
-                    <td><p>Введите имя : </p></td>
+                    <td><p>Введите пол : </p></td>
+                    <td><input type="text" name="Sex" /> </td>
+                </tr>
+                <tr>
+                    <td><p>Введите название : </p></td>
                     <td><input type="text" name="Name" /> </td>
                 </tr>
                 <tr>
-                    <td><p>Введите фамилию : </p></td>
-                    <td><input type="text" name="Surname" /> </td>
+                    <td><p>Введите размер : </p></td>
+                    <td><input type="text" name="Size" /> </td>
                 </tr>
                 <tr>
-                    <td><p>Введите отчество : </p></td>
-                    <td><input type="text" name="Middlename" /> </td>
-                </tr>
-                <tr>
-                    <td><p>Введите адрес : </p></td>
+                    <td><p>Введите цену : </p></td>
                     <td>
-                        <input type="text" name="Address" />
+                        <input type="text" name="Price" />
                     </td>
                 </tr>
                 <tr><td><input type="submit" value="Отправить" /> </td><td></td></tr>

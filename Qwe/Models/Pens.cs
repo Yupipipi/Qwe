@@ -8,7 +8,7 @@ namespace Qwe.Models
     public class Pens : Clothe
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string Name { get; set; } = "noname";
         public string Size { get; set; } = "S";
         public int Price { get; set; } = 50;
     }
