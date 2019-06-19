@@ -11,7 +11,7 @@ namespace Qwe.Controllers
     public class PensController : Controller
     {
         // GET: Pens
-        PensContext dbp = new PensContext();
+        ShopPensContext dbp = new ShopPensContext();
 
         public ActionResult Pen()
         {
@@ -63,6 +63,15 @@ namespace Qwe.Controllers
         {
             dbp.Entry(edit).State = EntityState.Modified;
             // сохраняем в бд все изменения
+            dbp.SaveChanges();
+            return View();
+        }
+
+        public ActionResult Deletep(int id)
+        {
+            ViewBag.ShortId = id;
+            Pens PensId = dbp.Penses.Find(id);
+            dbp.Penses.Remove(PensId);
             dbp.SaveChanges();
             return View();
         }

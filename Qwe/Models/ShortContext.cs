@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 
 namespace Qwe.Models
 {
-    public class ShortContext : DbContext
+    public class ShopShortContext : DbContext
     {
         public DbSet<Short> Shorts { get; set; }
         public DbSet<Purchase> Purchases { get; set; }

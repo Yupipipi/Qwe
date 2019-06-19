@@ -135,14 +135,12 @@
     <Compile Include="Models\Dop.cs" />
     <Compile Include="Models\Dopoln.cs" />
     <Compile Include="Models\PensContext.cs" />
-    <Compile Include="Models\PensDbInitializer.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Persons.cs" />
     <Compile Include="Models\Prov.cs" />
     <Compile Include="Models\Purchasep.cs" />
     <Compile Include="Models\Robot.cs" />
     <Compile Include="Models\Robots.cs" />
-    <Compile Include="Models\ShortDbInitializer.cs" />
     <Compile Include="Models\Clothe.cs" />
     <Compile Include="Models\Pens.cs" />
     <Compile Include="Models\Prim.cs" />
@@ -202,6 +200,7 @@
     <Content Include="Views\Home\Add.cshtml" />
     <Content Include="Views\Home\Edit.cshtml" />
     <Content Include="Views\Home\Delete.cshtml" />
+    <Content Include="Views\Pens\Deletep.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
