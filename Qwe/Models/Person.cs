@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Qwe.Models
 {
-    public class Person
+    public class Person : IGetInfo //применение интерфейса
     {
         public string Name { get; set; }
         public string Surname { get; set; }

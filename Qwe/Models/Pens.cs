@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Qwe.Models
 {
-    public class Pens : Clothe
+    public class Pens : Clothe //применение абстрактного класса
     {
         public int Id { get; set; }
         public string Name { get; set; } = "noname";
