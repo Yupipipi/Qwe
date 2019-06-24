@@ -10,7 +10,6 @@ namespace Qwe.Models
         public static int WordCount(this string str, char c)
         {
             int counter = 0;
-            string answer = "Да";
             for (int i = 0; i < str.Length; i++)
             {
                 if (str[i] == c)

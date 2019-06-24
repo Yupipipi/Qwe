@@ -1,4 +1,6 @@
-﻿@{
+﻿@using Qwe.Models
+@model IEnumerable<Short>
+@{
     ViewBag.Title = "Добавление";
 }
 
@@ -13,7 +15,7 @@
     <div>
         <h3>Форма добавления майки</h3>
         <form method="post" action="">
-            <input type="hidden" value="@ViewBag.ShortId" name="ShortId" />
+            <input type="hidden" value="@Model" name="ShortId" />
             <table>
                 <tr>
                     <td><p>Введите пол : </p></td>

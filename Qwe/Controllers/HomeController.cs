@@ -11,18 +11,15 @@ namespace Qwe.Controllers
     public class HomeController : Controller
     {
         ShopShortContext db = new ShopShortContext();
-        
+
         public ActionResult Index()
             {
-                IEnumerable<Short> shorts = db.Shorts;
-                ViewBag.Shorts = shorts;
-                return View();
+                return View(db.Shorts);
             }
         [HttpGet]
-        public ActionResult Buy(int id)
+        public ActionResult Buy()
         {
-            ViewBag.ShortId = id;
-            return View();
+            return View(db.Shorts);
         }
         [HttpPost]
         public string Buy(Purchase purchase)
@@ -36,34 +33,31 @@ namespace Qwe.Controllers
         [HttpGet]
         public ActionResult Add()
         {
-            return View();
+            return View(db.Shorts);
         }
         [HttpPost]
         public object Add(Short add)
         {
             db.Shorts.Add(add);
             db.SaveChanges();
-            return View();
+            return View(db.Shorts);
         }
 
         [HttpGet]
-        public ActionResult Edit(int id)
+        public ActionResult Edit()
         {
-            ViewBag.ShortId = id;
-            return View();
+            return View(db.Shorts);
         }
         [HttpPost]
         public object Edit(Short edit)
         {
             db.Entry(edit).State = EntityState.Modified;
             db.SaveChanges();
-            return View();
+            return View(db.Shorts);
         }
 
         public ActionResult Delete(int id)
         {
-            ViewBag.ShortId = id;
-
             Short ShortId = db.Shorts.Find(id);
             db.Shorts.Remove(ShortId);
             db.SaveChanges();

@@ -1,5 +1,7 @@
-﻿@{
-    ViewBag.Title = "Редактирование";
+﻿@using Qwe.Models
+@model IEnumerable < Pens >
+@{
+    ViewBag.Title = "Изменение";
 }
 
 <!DOCTYPE html>
@@ -13,7 +15,7 @@
     <div>
         <h3>Форма редактирования штанов</h3>
         <form method="post" action="">
-            <input type="hidden" value="@ViewBag.PensId" name="PensId" />
+            <input type="hidden" value="@Model" name="PensId" />
             <table>
                 <tr>
                     <td><p>Введите пол : </p></td>

@@ -10,70 +10,56 @@ namespace Qwe.Controllers
 {
     public class PensController : Controller
     {
-        // GET: Pens
         ShopPensContext dbp = new ShopPensContext();
 
         public ActionResult Pen()
         {
-            // получаем из бд все объекты 
-            IEnumerable<Pens> penses = dbp.Penses;
-            // передаем все объекты в ViewBag
-            ViewBag.Penses = penses;
-            // возвращаем представление
-            return View();
+            return View(dbp.Penses);
         }
         [HttpGet]
-        public ActionResult Buyp(int id)
+        public ActionResult Buyp()
         {
-            ViewBag.PensId = id;
-            return View();
+            return View(dbp.Penses);
         }
         [HttpPost]
         public string Buyp(Purchasep purchasep)
         {
             purchasep.Date = DateTime.Now;
-            // добавляем информацию о покупке в базу данных
             dbp.Purchasesp.Add(purchasep);
-            // сохраняем в бд все изменения
             dbp.SaveChanges();
             return purchasep.GetFullname();
         }
         public ActionResult Addp()
         {
-            return View();
+            return View(dbp.Penses);
         }
         [HttpPost]
         public object Addp(Pens add)
         {
-            // добавляем информацию о покупке в базу данных
             dbp.Penses.Add(add);
-            // сохраняем в бд все изменения
             dbp.SaveChanges();
-            return Pen();
+            return View(dbp.Penses);
         }
 
         [HttpGet]
-        public ActionResult Editp(int id)
+        public ActionResult Editp()
         {
-            ViewBag.PensId = id;
-            return View();
+            return View(dbp.Penses);
         }
         [HttpPost]
         public object Editp(Pens edit)
         {
             dbp.Entry(edit).State = EntityState.Modified;
-            // сохраняем в бд все изменения
             dbp.SaveChanges();
-            return View();
+            return View(dbp.Penses);
         }
 
         public ActionResult Deletep(int id)
         {
-            ViewBag.ShortId = id;
             Pens PensId = dbp.Penses.Find(id);
             dbp.Penses.Remove(PensId);
             dbp.SaveChanges();
-            return View();
+            return View(dbp.Penses);
         }
     }
 }

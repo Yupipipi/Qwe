@@ -1,4 +1,6 @@
-﻿@{
+﻿@using Qwe.Models
+@model IEnumerable<Short>
+@{
     ViewBag.Title = "Магазин";
 }
 
@@ -20,7 +22,7 @@
                 <td><p>Цена </p></td>
                 <td></td>
             </tr>
-            @foreach (var b in ViewBag.Shorts)
+            @foreach (Qwe.Models.Short b in Model)
             {
                 <tr>
                     <td><p>@b.Sex</p></td>

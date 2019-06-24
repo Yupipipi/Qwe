@@ -1,4 +1,6 @@
-﻿@{
+﻿@using Qwe.Models
+@model IEnumerable<Pens>
+@{
     ViewBag.Title = "Магазин";
 }
 
@@ -20,17 +22,17 @@
                 <td><p>Цена </p></td>
                 <td></td>
             </tr>
-            @foreach (var a in ViewBag.Penses)
+            @foreach (Qwe.Models.Pens a in Model)
             {
-        <tr>
-            <td><p>@a.Sex</p></td>
-            <td><p>@a.Name</p></td>
-            <td><p>@a.Size</p></td>
-            <td><p>@a.Price</p></td>
-            <td><p><a href="/Pens/Buyp/@a.Id">Купить</a></p></td>
-            <td><p><a href="/Pens/Editp/@a.Id">Редактировать</a></p></td>
-            <td><p><a href="/Pens/Deletep/@a.Id">Удалить</a></p></td>
-        </tr>
+                <tr>
+                    <td><p>@a.Sex</p></td>
+                    <td><p>@a.Name</p></td>
+                    <td><p>@a.Size</p></td>
+                    <td><p>@a.Price</p></td>
+                    <td><p><a href="/Pens/Buyp/@a.Id">Купить</a></p></td>
+                    <td><p><a href="/Pens/Editp/@a.Id">Редактировать</a></p></td>
+                    <td><p><a href="/Pens/Deletep/@a.Id">Удалить</a></p></td>
+                </tr>
             }
         </table>
 
