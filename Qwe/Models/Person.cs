@@ -13,7 +13,10 @@ namespace Qwe.Models
         public string Address { get; set; }
         public virtual string GetFullname()
         {
-            return "ФИО: " + Surname + " " + Name + " " + Middlename;
+            string s = Name;
+            char c = 'а';
+            int i = s.WordCount(c);  //применение расширения
+            return "ФИО: " + Surname + " " + Name + " " + Middlename + " Количество букв 'а' в имени = " + i;
         }
         public virtual int Age { get; set; } //при помощи virtual создается возможность для переопределения
     }

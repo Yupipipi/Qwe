@@ -149,6 +149,7 @@
     <Compile Include="Models\Short.cs" />
     <Compile Include="Models\ShortContext.cs" />
     <Compile Include="Models\Square.cs" />
+    <Compile Include="Models\StringExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
