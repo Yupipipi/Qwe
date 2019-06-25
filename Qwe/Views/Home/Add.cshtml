@@ -14,7 +14,7 @@
 <body>
     <div>
         <h3>Форма добавления майки</h3>
-        <form method="post" action="">
+        <form method="post" action="/Home/ResultAdd">
             <input type="hidden" value="@Model" name="ShortId" />
             <table>
                 <tr>
@@ -35,6 +35,7 @@
                         <input type="text" name="Price" />
                     </td>
                 </tr>
+                <tr><td><input type="reset" value="Отчистить" /> </td><td></td></tr>
                 <tr><td><input type="submit" value="Отправить" /> </td><td></td></tr>
             </table>
         </form>

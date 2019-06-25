@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
 namespace Qwe.Models
 {
     public class Purchase : Person

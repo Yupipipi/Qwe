@@ -1,5 +1,4 @@
-﻿@using Qwe.Models
-@model IEnumerable<Pens>
+﻿@model  Qwe.Models.Pens
 @{
     ViewBag.Title = "Удаление";
 }
@@ -13,7 +12,13 @@
 </head>
 <body>
     <div>
-        <h3>Запись удалена!</h3>
+        <h3>
+            Вы действительно хотите удалить запись?
+        </h3>
+        <form method="post" action="/Pens/ResultDeletep">
+            <input type="hidden" name="PensId" value="@Model" />
+            <input type="submit" value="Да" />
+        </form>
         <form method="post" action="/Pens/Pen">
             <button type="submit">Назад</button>
         </form>

@@ -1,4 +1,5 @@
-﻿@{
+﻿@model  Qwe.Models.Short
+@{
     ViewBag.Title = "Удаление";
 }
 
@@ -12,8 +13,12 @@
 <body>
     <div>
         <h3>
-            Запись удалена!
+            Вы действительно хотите удалить запись?
         </h3>
+        <form method="post" action="/Home/ResultDelete">
+            <input type="hidden" name="ShortId" value="@Model" />
+            <input type="submit" value="Да" />
+        </form>
         <form method="post" action="/Home/Index">
             <button type="submit">Назад</button>
         </form>

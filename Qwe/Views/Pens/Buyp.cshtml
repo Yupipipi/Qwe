@@ -1,5 +1,4 @@
-﻿@using Qwe.Models
-@model IEnumerable<Pens>
+﻿@model  Qwe.Models.Pens
 @{
     ViewBag.Title = "Покупка";
 }
@@ -14,8 +13,8 @@
 <body>
     <div>
         <h3>Форма оформления покупки штанов</h3>
-        <form method="post" action="">
-            <input type="hidden" value="@Model" name="PensId" />
+        <form method="post" action="/Pens/ResultBuyp">
+            <input type="hidden" name="PensId" value="@Model.Id"/>
             <table>
                 <tr>
                     <td><p>Введите имя : </p></td>
@@ -35,6 +34,7 @@
                         <input type="text" name="Address" />
                     </td>
                 </tr>
+                <tr><td><input type="reset" value="Отчистить" /> </td><td></td></tr>
                 <tr><td><input type="submit" value="Отправить" /> </td><td></td></tr>
             </table>
         </form>

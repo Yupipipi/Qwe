@@ -1,5 +1,4 @@
-﻿@using Qwe.Models
-@model IEnumerable<Short>
+﻿@model  Qwe.Models.Short
 @{
     ViewBag.Title = "Редактирование";
 }
@@ -19,22 +18,23 @@
             <table>
                 <tr>
                     <td><p>Введите пол : </p></td>
-                    <td><input type="text" name="Sex" /> </td>
+                    <td><input type="text" name="Sex" value="@Model.Sex" /> </td>
                 </tr>
                 <tr>
                     <td><p>Введите название : </p></td>
-                    <td><input type="text" name="Name" /> </td>
+                    <td><input type="text" name="Name" value="@Model.Name" /> </td>
                 </tr>
                 <tr>
                     <td><p>Введите размер : </p></td>
-                    <td><input type="text" name="Size" /> </td>
+                    <td><input type="text" name="Size" value="@Model.Size" /> </td>
                 </tr>
                 <tr>
                     <td><p>Введите цену : </p></td>
                     <td>
-                        <input type="text" name="Price" />
+                        <input type="text" name="Price" value="@Model.Price" />
                     </td>
                 </tr>
+                <tr><td><input type="reset" value="Отменить измнения" /> </td><td></td></tr>
                 <tr><td><input type="submit" value="Отправить" /> </td><td></td></tr>
             </table>
         </form>

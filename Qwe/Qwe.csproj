@@ -148,7 +148,6 @@
     <Compile Include="Models\Purchase.cs" />
     <Compile Include="Models\Short.cs" />
     <Compile Include="Models\ShortContext.cs" />
-    <Compile Include="Models\Square.cs" />
     <Compile Include="Models\StringExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -203,6 +202,13 @@
     <Content Include="Views\Home\Edit.cshtml" />
     <Content Include="Views\Home\Delete.cshtml" />
     <Content Include="Views\Pens\Deletep.cshtml" />
+    <Content Include="Views\Home\ResultAdd.cshtml" />
+    <Content Include="Views\Home\ResultBuy.cshtml" />
+    <Content Include="Views\Home\ResultEdit.cshtml" />
+    <Content Include="Views\Pens\ResultBuyp.cshtml" />
+    <Content Include="Views\Pens\ResultAddp.cshtml" />
+    <Content Include="Views\Home\ResultDelete.cshtml" />
+    <Content Include="Views\Pens\ResultDeletep.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

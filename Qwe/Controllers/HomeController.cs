@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using Qwe.Models;
 using System.Data.Entity;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Qwe.Controllers
 {
@@ -17,17 +16,18 @@ namespace Qwe.Controllers
                 return View(db.Shorts);
             }
         [HttpGet]
-        public ActionResult Buy()
+        public ActionResult Buy(int id)
         {
-            return View(db.Shorts);
+            var info = db.Shorts.Find(id);
+            return View(info);
         }
         [HttpPost]
-        public string Buy(Purchase purchase)
+        public object ResultBuy(Purchase purchase)
         {
             purchase.Date = DateTime.Now;
             db.Purchases.Add(purchase);
             db.SaveChanges();
-            return purchase.GetFullname();
+            return View();
         }
 
         [HttpGet]
@@ -36,31 +36,38 @@ namespace Qwe.Controllers
             return View(db.Shorts);
         }
         [HttpPost]
-        public object Add(Short add)
+        public object ResultAdd(Short info)
         {
-            db.Shorts.Add(add);
+            db.Shorts.Add(info);
             db.SaveChanges();
-            return View(db.Shorts);
+            return View();
         }
 
         [HttpGet]
-        public ActionResult Edit()
+        public ActionResult Edit(int id)
         {
-            return View(db.Shorts);
+            var info = db.Shorts.Find(id);
+            return View(info);
         }
         [HttpPost]
         public object Edit(Short edit)
         {
             db.Entry(edit).State = EntityState.Modified;
             db.SaveChanges();
-            return View(db.Shorts);
+            return View();
         }
 
+        [HttpGet]
         public ActionResult Delete(int id)
         {
             Short ShortId = db.Shorts.Find(id);
             db.Shorts.Remove(ShortId);
             db.SaveChanges();
+            return View(ShortId);
+        }
+        [HttpPost]
+        public object ResultDelete()
+        {
             return View();
         }
     }

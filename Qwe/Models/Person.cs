@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace Qwe.Models
+﻿namespace Qwe.Models
 {
     public class Person : IGetInfo //применение интерфейса
     {
@@ -16,7 +11,8 @@ namespace Qwe.Models
             string s = Name;
             char c = 'а';
             int i = s.WordCount(c);  //применение расширения
-            return "ФИО: " + Surname + " " + Name + " " + Middlename + " Количество букв 'а' в имени = " + i;
+            string Fullname = "ФИО: " + Surname + " " + Name + " " + Middlename + " Количество букв 'а' в имени = " + i;
+            return(Fullname);
         }
         public virtual int Age { get; set; } //при помощи virtual создается возможность для переопределения
     }

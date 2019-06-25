@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace Qwe.Models
+﻿namespace Qwe.Models
 {
-    sealed class Net //класс не наследуется
+    /*sealed class Net //класс не наследуется
     {
         int a = 7; // по умолчанию доступ private
         private int b = 9; // в классе
@@ -16,4 +11,5 @@ namespace Qwe.Models
         protected private int g = 2; // в классе и производных в проекте
     }
     //class Op : Net { } будет ошибка
+    */
 }
