@@ -2,8 +2,6 @@
 using System.Web.Mvc;
 using Qwe.Models;
 using System.Data.Entity;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Qwe.Controllers
 {
@@ -12,22 +10,24 @@ namespace Qwe.Controllers
         ShopShortContext db = new ShopShortContext();
 
         public ActionResult Index()
-            {
-                return View(db.Shorts);
-            }
+        {
+            return View(db.Shorts);
+        }
+
         [HttpGet]
         public ActionResult Buy(int id)
         {
             var info = db.Shorts.Find(id);
             return View(info);
         }
+
         [HttpPost]
-        public object ResultBuy(Purchase purchase)
+        public object Buy(Purchase purchase)
         {
             purchase.Date = DateTime.Now;
             db.Purchases.Add(purchase);
             db.SaveChanges();
-            return View();
+            return View("Result");
         }
 
         [HttpGet]
@@ -35,12 +35,15 @@ namespace Qwe.Controllers
         {
             return View(db.Shorts);
         }
+
         [HttpPost]
-        public object ResultAdd(Short info)
+        public object Add(Short info)
         {
+            string str = info.Size.Sizing();
+            info.Size = str;
             db.Shorts.Add(info);
             db.SaveChanges();
-            return View();
+            return View("Result");
         }
 
         [HttpGet]
@@ -49,12 +52,13 @@ namespace Qwe.Controllers
             var info = db.Shorts.Find(id);
             return View(info);
         }
+
         [HttpPost]
         public object Edit(Short edit)
         {
             db.Entry(edit).State = EntityState.Modified;
             db.SaveChanges();
-            return View();
+            return View("Result");
         }
 
         [HttpGet]
@@ -65,8 +69,8 @@ namespace Qwe.Controllers
             db.SaveChanges();
             return View(ShortId);
         }
-        [HttpPost]
-        public object ResultDelete()
+
+        public object Result()
         {
             return View();
         }

@@ -20,23 +20,25 @@ namespace Qwe.Controllers
             return View(info);
         }
         [HttpPost]
-        public object ResultBuyp(Purchasep purchasep)
+        public object Buyp(Purchasep purchasep)
         {
             purchasep.Date = DateTime.Now;
             dbp.Purchasesp.Add(purchasep);
             dbp.SaveChanges();
-            return View();
+            return View("Result");
         }
         public ActionResult Addp()
         {
             return View(dbp.Penses);
         }
         [HttpPost]
-        public object ResultAddp(Pens add)
+        public object Addp(Pens info)
         {
-            dbp.Penses.Add(add);
+            string str = info.Size.Sizing();
+            info.Size = str;
+            dbp.Penses.Add(info);
             dbp.SaveChanges();
-            return View();
+            return View("Result");
         }
 
         [HttpGet]
@@ -45,12 +47,13 @@ namespace Qwe.Controllers
             var info = dbp.Penses.Find(id);
             return View(info);
         }
+
         [HttpPost]
         public object Editp(Pens edit)
         {
             dbp.Entry(edit).State = EntityState.Modified;
             dbp.SaveChanges();
-            return View(dbp.Penses);
+            return View("Result");
         }
 
         [HttpGet]
@@ -61,8 +64,8 @@ namespace Qwe.Controllers
             dbp.SaveChanges();
             return View(PensId);
         }
-        [HttpPost]
-        public object ResultDeletep()
+
+        public object Result()
         {
             return View();
         }

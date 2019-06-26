@@ -18,20 +18,37 @@
             <table>
                 <tr>
                     <td><p>Введите пол : </p></td>
-                    <td><input type="text" name="Sex" value="@Model.Sex" /> </td>
+                    <td>
+                        <p><input list="Sex" name="Sex" value="@Model.Sex" required/></p>
+                        <datalist id="Sex">
+                            <option>Мужской</option>
+                            <option>Женский</option>
+                        </datalist>
+                    </td>
                 </tr>
                 <tr>
                     <td><p>Введите название : </p></td>
-                    <td><input type="text" name="Name" value="@Model.Name" /> </td>
+                    <td><input type="text" name="Name" value="@Model.Name" required/> </td>
                 </tr>
                 <tr>
                     <td><p>Введите размер : </p></td>
-                    <td><input type="text" name="Size" value="@Model.Size" /> </td>
+                    <td>
+                        <p><input list="Size" name="Size" value="@Model.Size" required /></p>
+                        <datalist id="Size">
+                            <option>44</option>
+                            <option>46</option>
+                            <option>48</option>
+                            <option>50</option>
+                            <option>52</option>
+                            <option>54</option>
+                            <option>56</option>
+                        </datalist>
+                    </td>
                 </tr>
                 <tr>
                     <td><p>Введите цену : </p></td>
                     <td>
-                        <input type="text" name="Price" value="@Model.Price" />
+                        <input type="text" name="Price" value="@Model.Price" required/>
                     </td>
                 </tr>
                 <tr><td><input type="reset" value="Отчистить" /> </td><td></td></tr>

@@ -14,25 +14,42 @@
 <body>
     <div>
         <h3>Форма добавления записи</h3>
-        <form method="post" action="/Pens/ResultAddp">
+        <form method="post" action="/Pens/Addp">
             <input type="hidden" value="@Model" name="PensId" />
             <table>
                 <tr>
                     <td><p>Введите пол : </p></td>
-                    <td><input type="text" name="Sex" /> </td>
+                    <td>
+                        <p><input list="Sex" name="Sex" required></p>
+                        <datalist id="Sex">
+                            <option>Мужской</option>
+                            <option>Женский</option>
+                        </datalist>
+                    </td>
                 </tr>
                 <tr>
                     <td><p>Введите название : </p></td>
-                    <td><input type="text" name="Name" /> </td>
+                    <td><input type="text" name="Name"  required/> </td>
                 </tr>
                 <tr>
                     <td><p>Введите размер : </p></td>
-                    <td><input type="text" name="Size" /> </td>
+                    <td>
+                        <p><input list="Size" name="Size" required /></p>
+                        <datalist id="Size">
+                            <option>44</option>
+                            <option>46</option>
+                            <option>48</option>
+                            <option>50</option>
+                            <option>52</option>
+                            <option>54</option>
+                            <option>56</option>
+                        </datalist>
+                    </td>
                 </tr>
                 <tr>
                     <td><p>Введите стоимость : </p></td>
                     <td>
-                        <input type="text" name="Price" />
+                        <input type="text" name="Price" required/>
                     </td>
                 </tr>
                 <tr><td><input type="reset" value="Отчистить" /> </td><td></td></tr>
