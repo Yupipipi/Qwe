@@ -89,6 +89,7 @@ namespace Qwe.Controllers
 
         public object Result()
         {
+            ViewBag.Delete = "Удаление";
             return View();
         }
     }

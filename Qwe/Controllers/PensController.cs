@@ -25,6 +25,7 @@ namespace Qwe.Controllers
             purchasep.Date = DateTime.Now;
             dbp.Purchasesp.Add(purchasep);
             dbp.SaveChanges();
+            ViewBag.Buy = "Покупка";
             return View("Result");
         }
         public ActionResult Addp()
@@ -38,6 +39,7 @@ namespace Qwe.Controllers
             info.Size = str;
             dbp.Penses.Add(info);
             dbp.SaveChanges();
+            ViewBag.Add = "Добавление";
             return View("Result");
         }
 
@@ -53,6 +55,7 @@ namespace Qwe.Controllers
         {
             dbp.Entry(edit).State = EntityState.Modified;
             dbp.SaveChanges();
+            ViewBag.Edit = "Редактирование";
             return View("Result");
         }
 
@@ -62,11 +65,13 @@ namespace Qwe.Controllers
             Pens PensId = dbp.Penses.Find(id);
             dbp.Penses.Remove(PensId);
             dbp.SaveChanges();
+            ViewBag.Delete = "Удаление";
             return View(PensId);
         }
 
         public object Result()
         {
+            ViewBag.Delete = "Удаление";
             return View();
         }
     }
