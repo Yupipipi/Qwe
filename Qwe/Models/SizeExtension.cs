@@ -4,7 +4,7 @@ namespace Qwe.Models
 {
     public static class SizeExtension
     {
-        public static string Sizing(this string size)
+        public static string SizeConventer(this string size)
         {
             if (Regex.IsMatch(size, "^[^x]+$"))
             {

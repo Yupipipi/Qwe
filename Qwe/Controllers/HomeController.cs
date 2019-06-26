@@ -9,6 +9,7 @@ namespace Qwe.Controllers
     {
         ShopShortContext db = new ShopShortContext();
 
+        //[MyResult]
         public ActionResult Index()
         {
             return View(db.Shorts);
@@ -39,8 +40,20 @@ namespace Qwe.Controllers
         [HttpPost]
         public object Add(Short info)
         {
-            string str = info.Size.Sizing();
+            string str = info.Size.SizeConventer();
             info.Size = str;
+            try
+            {
+                if (info.Price > 500)
+                {
+                    throw new Exception("Цена выше допустимых 500 единиц");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Ошибка: {ex.Message}");
+                return RedirectPermanent("/Home/Add");  //переадресация
+            }
             db.Shorts.Add(info);
             db.SaveChanges();
             return View("Result");
@@ -61,7 +74,7 @@ namespace Qwe.Controllers
             return View("Result");
         }
 
-        [HttpGet]
+        [MyResult]
         public ActionResult Delete(int id)
         {
             Short ShortId = db.Shorts.Find(id);
@@ -70,9 +83,10 @@ namespace Qwe.Controllers
             return View(ShortId);
         }
 
-        public object Result()
+        public object Result(Uri info)
         {
-            return View();
+            info = Request.UrlReferrer;
+            return View(info);
         }
     }
 }

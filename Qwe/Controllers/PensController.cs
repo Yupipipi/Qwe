@@ -34,7 +34,7 @@ namespace Qwe.Controllers
         [HttpPost]
         public object Addp(Pens info)
         {
-            string str = info.Size.Sizing();
+            string str = info.Size.SizeConventer();
             info.Size = str;
             dbp.Penses.Add(info);
             dbp.SaveChanges();

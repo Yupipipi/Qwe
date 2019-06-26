@@ -135,6 +135,7 @@
     <Compile Include="Models\Dop.cs" />
     <Compile Include="Models\Dopoln.cs" />
     <Compile Include="Models\IGetInfo.cs" />
+    <Compile Include="Models\MyResultAttribute.cs" />
     <Compile Include="Models\PensContext.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Persons.cs" />
