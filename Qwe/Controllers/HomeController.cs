@@ -28,6 +28,7 @@ namespace Qwe.Controllers
             purchase.Date = DateTime.Now;
             db.Purchases.Add(purchase);
             db.SaveChanges();
+            ViewBag.Buy = "Покупка";
             return View("Result");
         }
 
@@ -56,6 +57,7 @@ namespace Qwe.Controllers
             }
             db.Shorts.Add(info);
             db.SaveChanges();
+            ViewBag.Add = "Добавление";
             return View("Result");
         }
 
@@ -71,6 +73,7 @@ namespace Qwe.Controllers
         {
             db.Entry(edit).State = EntityState.Modified;
             db.SaveChanges();
+            ViewBag.Edit = "Редактирование";
             return View("Result");
         }
 
@@ -80,13 +83,13 @@ namespace Qwe.Controllers
             Short ShortId = db.Shorts.Find(id);
             db.Shorts.Remove(ShortId);
             db.SaveChanges();
+            ViewBag.Delete = "Удаление";
             return View(ShortId);
         }
 
-        public object Result(Uri info)
+        public object Result()
         {
-            info = Request.UrlReferrer;
-            return View(info);
+            return View();
         }
     }
 }
