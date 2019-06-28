@@ -9,6 +9,7 @@ namespace Qwe.Controllers
     {
         ShopPensContext dbp = new ShopPensContext();
 
+        [OutputCache(Duration = 360)]
         public ActionResult Pen()
         {
             return View(dbp.Penses);
@@ -25,7 +26,7 @@ namespace Qwe.Controllers
             purchasep.Date = DateTime.Now;
             dbp.Purchasesp.Add(purchasep);
             dbp.SaveChanges();
-            ViewBag.Buy = "Покупка";
+            ViewBag.Operation = "Покупка";
             return View("Result");
         }
         public ActionResult Addp()
@@ -39,7 +40,7 @@ namespace Qwe.Controllers
             info.Size = str;
             dbp.Penses.Add(info);
             dbp.SaveChanges();
-            ViewBag.Add = "Добавление";
+            ViewBag.Operation = "Добавление";
             return View("Result");
         }
 
@@ -53,9 +54,11 @@ namespace Qwe.Controllers
         [HttpPost]
         public object Editp(Pens edit)
         {
+            string str = edit.Size.SizeConventer();
+            edit.Size = str;
             dbp.Entry(edit).State = EntityState.Modified;
             dbp.SaveChanges();
-            ViewBag.Edit = "Редактирование";
+            ViewBag.Operation = "Редактирование";
             return View("Result");
         }
 
@@ -65,13 +68,13 @@ namespace Qwe.Controllers
             Pens PensId = dbp.Penses.Find(id);
             dbp.Penses.Remove(PensId);
             dbp.SaveChanges();
-            ViewBag.Delete = "Удаление";
+            ViewBag.Operation = "Удаление";
             return View(PensId);
         }
 
         public object Result()
         {
-            ViewBag.Delete = "Удаление";
+            ViewBag.Operation = "Удаление";
             return View();
         }
     }

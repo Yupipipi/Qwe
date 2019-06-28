@@ -9,7 +9,7 @@ namespace Qwe.Controllers
     {
         ShopShortContext db = new ShopShortContext();
 
-        //[MyResult]
+        [OutputCache(Duration = 360)]
         public ActionResult Index()
         {
             return View(db.Shorts);
@@ -23,12 +23,12 @@ namespace Qwe.Controllers
         }
 
         [HttpPost]
-        public object Buy(Purchase purchase)
+        public ActionResult Buy(Purchase purchase)
         {
             purchase.Date = DateTime.Now;
             db.Purchases.Add(purchase);
             db.SaveChanges();
-            ViewBag.Buy = "Покупка";
+            ViewBag.Operation = "Покупка";
             return View("Result");
         }
 
@@ -39,7 +39,7 @@ namespace Qwe.Controllers
         }
 
         [HttpPost]
-        public object Add(Short info)
+        public ActionResult Add(Short info)
         {
             string str = info.Size.SizeConventer();
             info.Size = str;
@@ -55,9 +55,12 @@ namespace Qwe.Controllers
                 Console.WriteLine($"Ошибка: {ex.Message}");
                 return RedirectPermanent("/Home/Add");  //переадресация
             }
+            finally
+            {
+                ViewBag.Operation = "Добавление";
+            }
             db.Shorts.Add(info);
             db.SaveChanges();
-            ViewBag.Add = "Добавление";
             return View("Result");
         }
 
@@ -69,11 +72,13 @@ namespace Qwe.Controllers
         }
 
         [HttpPost]
-        public object Edit(Short edit)
+        public ActionResult Edit(Short edit)
         {
+            string str = edit.Size.SizeConventer();
+            edit.Size = str;
             db.Entry(edit).State = EntityState.Modified;
             db.SaveChanges();
-            ViewBag.Edit = "Редактирование";
+            ViewBag.Operation = "Редактирование";
             return View("Result");
         }
 
@@ -83,13 +88,13 @@ namespace Qwe.Controllers
             Short ShortId = db.Shorts.Find(id);
             db.Shorts.Remove(ShortId);
             db.SaveChanges();
-            ViewBag.Delete = "Удаление";
+            ViewBag.Operation = "Удаление";
             return View(ShortId);
         }
 
-        public object Result()
+        public ActionResult Result()
         {
-            ViewBag.Delete = "Удаление";
+            ViewBag.Operation = "Удаление";
             return View();
         }
     }
